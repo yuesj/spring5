@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--1 集合类型属性注入-->
+    <bean id="stu" class="collectiontype.Stu">
+        <!--数组类型属性注入-->
+        <property name="courses">
+            <array>
+                <value>java 课程</value>
+                <value>数据库课程</value>
+            </array>
+        </property>
+        <!--list 类型属性注入-->
+        <property name="list">
+            <list>
+                <value>张三</value>
+                <value>小三</value>
+            </list>
+        </property>
+        <!--map 类型属性注入-->
+        <property name="maps">
+            <map>
+                <entry key="语言" value="java"></entry>
+                <entry key="语言" value="php"></entry>
+            </map>
+        </property>
+        <!--set 类型属性注入-->
+        <property name="sets">
+            <set>
+                <value>Mysql</value>
+                <value>Redis</value>
+            </set>
+        </property>
+
+        <!--List 对象注入-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+
+    </bean>
+
+    <!--创建多个course对象-->
+    <bean id="course1" class="collectiontype.Course">
+        <property name="cname" value="课程1"></property>
+    </bean>
+    <bean id="course2" class="collectiontype.Course">
+        <property name="cname" value="课程2"></property>
+    </bean>
+
+
+
+
+
+
+
+</beans>
